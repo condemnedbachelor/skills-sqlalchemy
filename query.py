@@ -62,7 +62,11 @@ def get_brands_summary():
     '''Prints out each brand name, and each model name for that brand
      using only ONE database query.'''
 
-    Model.query.filter(Model.brand_name, Model.name).all()
+    q = db.session.query(Model.brand_name, Model.name).all()
+
+    for Model.brand_name in q:
+    	print Model.name
+#Not sure if this last function is working right.
 
 # -------------------------------------------------------------------
 
@@ -81,5 +85,24 @@ def get_models_between(start_year, end_year):
 
 # 1. What is the returned value and datatype of ``Brand.query.filter_by(name='Ford')``?
 
+# For some reason this query isn't returning what I think it should be returning in the Python shell.
+
+# <flask_sqlalchemy.BaseQuery object at 0x10f9cc1d0> 
+
+# or when printed, the broken query:
+
+# SELECT brands.id AS brands_id, brands.name AS brands_name, brands.founded AS brands_founded, brands.headquarters AS brands_headquarters, brands.discontinued AS brands_discontinued 
+# FROM brands 
+# WHERE brands.name = :name_1
+
+# is returned. I'll answer this based on what I think it should return.
+
+# This query would show all brand table's attributes for id 1, which is the Ford p_key.
+
+
 # 2. In your own words, what is an association table, and what *type* of relationship
 # does an association table manage?
+
+# An association table holds relationship information for a number of foreign key assignments 
+# (and sometimes a few unique values), so fields from different tables you may want 
+# joint-information on are more easily accessed when you query them.
