@@ -47,6 +47,9 @@ Brand.query.filter(Brand.discontinued != None, Brand.founded < 1950).all()
 # Get any model whose brand_name is not Chevrolet.
 Model.query.filter(Model.brand_name != "Chevrolet").all()
 
+# testing broken question 1
+Brand.query.filter(Brand.name == "Ford").all()
+
 # Fill in the following functions. (See directions for more info.)
 
 def get_model_info(year):
@@ -98,7 +101,7 @@ def get_models_between(start_year, end_year):
 # is returned. I'll answer this based on what I think it should return.
 
 # This query would show all brand table's attributes for id 1, which is the Ford p_key.
-
+# I think this is caused by the existing filter_by problem.
 
 # 2. In your own words, what is an association table, and what *type* of relationship
 # does an association table manage?
