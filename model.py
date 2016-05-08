@@ -18,7 +18,7 @@ class Model(db.Model):
 
     id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     year = db.Column(db.Integer, nullable=False)
-    brand_name = db.Column(db.String(64), nullable=False)
+    brand_name = db.Column(db.String(64), db.ForeignKey('brands.name'), nullable=False)
     name = db.Column(db.String(64), nullable=False)
 
 class Brand(db.Model):

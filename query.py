@@ -53,13 +53,16 @@ def get_model_info(year):
     '''Takes in a year, and prints out each model, brand_name, and brand
     headquarters for that year using only ONE database query.'''
 
-    pass
+    model_info = db.session.query(Model.name, Brand.name, Brand.headquarters).outerjoin(Brand).all()
+
+    for Model.name, Brand.name, Brand.headquarters in model_info:
+    	print Model.name, Brand.name, Brand.headquarters
 
 def get_brands_summary():
     '''Prints out each brand name, and each model name for that brand
      using only ONE database query.'''
 
-    pass
+    Model.query.filter(Model.brand_name, Model.name).all()
 
 # -------------------------------------------------------------------
 
