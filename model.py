@@ -17,7 +17,7 @@ class Model(db.Model):
     __tablename__ = "models"
 
     id = db.Column(db.Integer, autoincrement=True, primary_key=True)
-    year = db.Column(db.String(4), nullable=False)
+    year = db.Column(db.Integer, nullable=False)
     brand_name = db.Column(db.String(64), nullable=False)
     name = db.Column(db.String(64), nullable=False)
 
@@ -27,12 +27,11 @@ class Brand(db.Model):
 
     id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     name = db.Column(db.String(64), nullable=False)
-    founded = db.Column(db.String(4), nullable=False)
+    founded = db.Column(db.Integer, nullable=False)
     headquarters = db.Column(db.Text, nullable=False)
-    discountinued = db.Column(db.String(4), nullable=True)
+    discontinued = db.Column(db.Integer, nullable=True)
 
-# End Part 1
-##############################################################################
+# End Part 1xzvb89aqcx=]]##############################################################################
 # Helper functions
 
 def init_app():
